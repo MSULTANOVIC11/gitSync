@@ -1,12 +1,16 @@
+# Author : Maid SULTANOVIC
+# This script will create a gitlab repository for you and it will save its URL in the clipboard
+# It use gitlab API so you will have to change your private_token
+# Usage in cmd : python gitSync.py [project's name] [project's description]
+
+
 import gitlab
-import json
-import urlFinder
 import sys
+import pyperclip
 
 
+# change the private_token for ur purpose
 gl = gitlab.Gitlab('https://gitlab.com/', private_token='rbxzs2WK-vhBnFSRhbn3')
-
-##urlGive(str(sys.argv[1], str(sys.argv[2])))
 
 
 def createProjet(pName, pDescription):
@@ -25,6 +29,7 @@ def urlGive(pName, pDescription):
         url = url + str.lower(str(pName)) + ".git"
 
         print(url)
+        pyperclip.copy(url)  # copy the git's url in clipboard
     else:
         print("Error project creation failed")
 
