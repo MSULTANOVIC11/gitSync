@@ -35,10 +35,22 @@ def urlGive(pName, pDescription):
         print("Error project creation failed")
 
 
+def projectList(pName):
+    projects = gl.projects.list(search=pName, owned=True)
+    projects = projects[0]
+    gitUrl = projects.__getattr__("http_url_to_repo")
+    print(gitUrl)
+    pyperclip.copy(gitUrl)
+
+
 if len(sys.argv) < 2:
     print("Error : You need to add project's name")
     print("Usage : python gitSync.py name [description]")
 elif len(sys.argv) < 3:
     urlGive(str(sys.argv[1]), "")
 else:
-    urlGive(str(sys.argv[1]), str(sys.argv[2]))
+
+    if str(sys.argv[1]) == "1":
+        projectList(str(sys.argv[2]))
+    else:
+        urlGive(str(sys.argv[1]), str(sys.argv[2]))
