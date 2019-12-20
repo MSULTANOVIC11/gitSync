@@ -6,4 +6,6 @@ You will need gitlab module and pyperclip module
 
 Usage in cmd : python gitSync.py name [description]
 
+Free for use
+
 
