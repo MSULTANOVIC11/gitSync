@@ -11,7 +11,7 @@ import pyperclip
 
 
 # change the private_token for ur purpose
-gl = gitlab.Gitlab('https://gitlab.com/', private_token='rbxzs2WK-vhBnFSRhbn3')
+gl = gitlab.Gitlab('https://gitlab.com/', private_token='putYourPrivateTokenHere')
 
 
 def createProjet(pName, pDescription):
@@ -25,7 +25,8 @@ def createProjet(pName, pDescription):
 
 
 def urlGive(pName, pDescription):
-    url = "https://gitlab.com/MSD11/"
+    #Change to your gitlab's account
+    url = "https://gitlab.com/YourGitLabAccount/" 
     if createProjet(pName, pDescription) == 0:
         url = url + str.lower(str(pName)) + ".git"
 
